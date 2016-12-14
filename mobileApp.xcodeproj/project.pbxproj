@@ -45,7 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		090DF3BC1E018036001E4C5F /* mobileApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mobileApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		090DF3BC1E018036001E4C5F /* ServersCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServersCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		090DF3C01E018036001E4C5F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		090DF3C21E018036001E4C5F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		090DF3C31E018036001E4C5F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		090DF3BD1E018036001E4C5F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				090DF3BC1E018036001E4C5F /* mobileApp.app */,
+				090DF3BC1E018036001E4C5F /* ServersCheck.app */,
 				090DF3D51E018036001E4C5F /* mobileAppTests.xctest */,
 				090DF3E01E018036001E4C5F /* mobileAppUITests.xctest */,
 			);
@@ -255,7 +255,7 @@
 			);
 			name = mobileApp;
 			productName = mobileApp;
-			productReference = 090DF3BC1E018036001E4C5F /* mobileApp.app */;
+			productReference = 090DF3BC1E018036001E4C5F /* ServersCheck.app */;
 			productType = "com.apple.product-type.application";
 		};
 		090DF3D41E018036001E4C5F /* mobileAppTests */ = {
@@ -665,7 +665,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.servicesCheck.mobileApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ServersCheck;
 				PROVISIONING_PROFILE = "089444d8-f2d6-4bb0-a81b-fe36f88bd4c4";
 				PROVISIONING_PROFILE_SPECIFIER = Wildcard_Development;
 			};
@@ -682,7 +682,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.servicesCheck.mobileApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ServersCheck;
 				PROVISIONING_PROFILE = "71001edb-f412-4c51-a2ad-731afa1a2245";
 				PROVISIONING_PROFILE_SPECIFIER = ServersCheck_AppStore;
 			};
