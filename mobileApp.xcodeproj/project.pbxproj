@@ -20,8 +20,8 @@
 		09B4C2E91E01B302005A4C99 /* NSString+EmailValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4C2E81E01B302005A4C99 /* NSString+EmailValidation.m */; };
 		09B4C2EC1E01B3E7005A4C99 /* UIViewController+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4C2EB1E01B3E7005A4C99 /* UIViewController+Alert.m */; };
 		09B4C2EF1E01C8B9005A4C99 /* UIView+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4C2EE1E01C8B9005A4C99 /* UIView+MBProgressHUD.m */; };
-		09B4C2F11E01F56C005A4C99 /* img_launch_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B4C2F01E01F56C005A4C99 /* img_launch_logo.png */; };
 		09B4C2F31E01F5BC005A4C99 /* img_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B4C2F21E01F5BC005A4C99 /* img_logo.png */; };
+		09B4C2F51E01F8E2005A4C99 /* img_logo_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B4C2F41E01F8E2005A4C99 /* img_logo_splash.png */; };
 		8CBA78535CA780BF8EBB9D94 /* libPods-mobileApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B26A48B47FCAF0B04A0F17AB /* libPods-mobileApp.a */; };
 		D1C5C8AB258AD4E26D734AB0 /* libPods-mobileAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B00767AD23EBD749051E03 /* libPods-mobileAppTests.a */; };
 		E935B8FE40BB32AEC1E6D0E8 /* libPods-mobileAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE9537EEBDA863CD2F01C41 /* libPods-mobileAppUITests.a */; };
@@ -71,8 +71,8 @@
 		09B4C2EB1E01B3E7005A4C99 /* UIViewController+Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Alert.m"; sourceTree = "<group>"; };
 		09B4C2ED1E01C8B9005A4C99 /* UIView+MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MBProgressHUD.h"; sourceTree = "<group>"; };
 		09B4C2EE1E01C8B9005A4C99 /* UIView+MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MBProgressHUD.m"; sourceTree = "<group>"; };
-		09B4C2F01E01F56C005A4C99 /* img_launch_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_launch_logo.png; sourceTree = "<group>"; };
 		09B4C2F21E01F5BC005A4C99 /* img_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_logo.png; sourceTree = "<group>"; };
+		09B4C2F41E01F8E2005A4C99 /* img_logo_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_logo_splash.png; sourceTree = "<group>"; };
 		102701FB3E00A4F2041BA887 /* Pods-mobileAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobileAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mobileAppUITests/Pods-mobileAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3039AE7753FC47F68D888474 /* Pods-mobileApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobileApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-mobileApp/Pods-mobileApp.release.xcconfig"; sourceTree = "<group>"; };
 		B26A48B47FCAF0B04A0F17AB /* libPods-mobileApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mobileApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,7 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				09B4C2F21E01F5BC005A4C99 /* img_logo.png */,
-				09B4C2F01E01F56C005A4C99 /* img_launch_logo.png */,
+				09B4C2F41E01F8E2005A4C99 /* img_logo_splash.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -350,11 +350,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09B4C2F11E01F56C005A4C99 /* img_launch_logo.png in Resources */,
 				090DF3CF1E018036001E4C5F /* LaunchScreen.storyboard in Resources */,
 				090DF3CC1E018036001E4C5F /* Assets.xcassets in Resources */,
 				090DF3CA1E018036001E4C5F /* Main.storyboard in Resources */,
 				09B4C2F31E01F5BC005A4C99 /* img_logo.png in Resources */,
+				09B4C2F51E01F8E2005A4C99 /* img_logo_splash.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,12 +675,14 @@
 			baseConfigurationReference = 3039AE7753FC47F68D888474 /* Pods-mobileApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 34MUC6D9NK;
 				INFOPLIST_FILE = mobileApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.servicesCheck.mobileApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "71001edb-f412-4c51-a2ad-731afa1a2245";
+				PROVISIONING_PROFILE_SPECIFIER = ServersCheck_AppStore;
 			};
 			name = Release;
 		};
