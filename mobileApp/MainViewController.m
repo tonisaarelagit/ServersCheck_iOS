@@ -23,6 +23,7 @@
     IBOutlet UIWebView *webViewMap;
     IBOutlet UIWebView *webViewDevices;
     IBOutlet UIWebView *webViewAlerts;
+    IBOutlet UILabel *lblLastRefresh;
 }
 
 @end
@@ -31,6 +32,9 @@
 {
     BOOL isLogining;
     BOOL isLogined;
+    NSDate *dateMap;
+    NSDate *dateDevices;
+    NSDate *dateAlerts;
 }
 
 - (void)viewDidLoad {
@@ -82,6 +86,7 @@
     webViewMap.hidden = NO;
     webViewDevices.hidden = YES;
     webViewAlerts.hidden = YES;
+    lblLastRefresh.text = [self convertDateToString:dateMap];
     [webViewMap loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:MAP_URL]]];
 }
 
@@ -89,6 +94,7 @@
     webViewMap.hidden = YES;
     webViewDevices.hidden = NO;
     webViewAlerts.hidden = YES;
+    lblLastRefresh.text = [self convertDateToString:dateDevices];
     [webViewDevices loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:DEVICE_URL]]];
 }
 
@@ -96,6 +102,7 @@
     webViewMap.hidden = YES;
     webViewDevices.hidden = YES;
     webViewAlerts.hidden = NO;
+    lblLastRefresh.text = [self convertDateToString:dateAlerts];
     [webViewAlerts loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:ALERTS_URL]]];
 }
 
@@ -127,6 +134,7 @@
                 isLogined = YES;
                 webViewContainer.hidden = NO;
                 [webViewDevices loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:DEVICE_URL]]];
+                dateMap = dateDevices = dateAlerts = [NSDate date];
             } else {
                 [self showOkAlertWithTitle:@"Error" message:@"Login failed. Please verify your network settings, username & password"];
             }
@@ -134,6 +142,16 @@
     } else {
         if ([requestString isEqualToString:[NSString stringWithFormat:BASE_URL, @"login.php"]] && isLogined) {
             [self shouldPerformLogout];
+        } else {
+            NSDate *now = [NSDate date];
+            if (webView == webViewMap) {
+                dateMap = now;
+            } else if (webView == webViewDevices) {
+                dateDevices = now;
+            } else if (webView == webViewAlerts) {
+                dateAlerts = now;
+            }
+            lblLastRefresh.text = [self convertDateToString:now];
         }
     }
 }
@@ -160,6 +178,12 @@
     [webViewAlerts stopLoading];
     
     [webViewDevices loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:LOGOUT_URL]]];
+}
+
+- (NSString *)convertDateToString:(NSDate *)date {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EE MMM dd, yyyy - HH:mm"];
+    return [dateFormatter stringFromDate:date];
 }
 
 @end
