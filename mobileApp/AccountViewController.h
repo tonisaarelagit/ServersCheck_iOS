@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AccountViewController.h
 //  mobileApp
 //
 //  Created by admin_user on 12/14/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface AccountViewController : UIViewController
 
 @end
-
