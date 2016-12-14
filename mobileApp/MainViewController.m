@@ -8,12 +8,31 @@
 
 #import "MainViewController.h"
 #import "LocalStorage.h"
+#import "UIView+MBProgressHUD.h"
+#import "UIViewController+Alert.h"
 
-@interface MainViewController ()
+#define BASE_URL    @"https://my.infrastructuremonitoring.com/%@"
+#define LOGOUT_URL  @"https://my.infrastructuremonitoring.com/logout.php"
+#define MAP_URL     @"https://my.infrastructuremonitoring.com/m/map.php"
+#define DEVICE_URL  @"https://my.infrastructuremonitoring.com/m/device.php"
+#define ALERTS_URL  @"https://my.infrastructuremonitoring.com/m/alerts.php"
+
+@interface MainViewController () <UIWebViewDelegate>
+{
+    IBOutlet UIView *webViewContainer;
+    IBOutlet UIWebView *webViewMap;
+    IBOutlet UIWebView *webViewDevices;
+    IBOutlet UIWebView *webViewAlerts;
+}
 
 @end
 
 @implementation MainViewController
+{
+    BOOL isLogining;
+    BOOL isLogined;
+    BOOL isLogouted;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,7 +46,7 @@
 
 #pragma mark - Button Action Methods
 
-- (IBAction)didTapLoginButton:(UIButton *)sender {
+- (IBAction)didTapLoginButton:(id)sender {
     NSString *email = [[LocalStorage shared] defaultForKey:@"email"];
     NSString *password = [[LocalStorage shared] defaultForKey:@"password"];
     if (email.length == 0 || password.length == 0) {
@@ -41,11 +60,48 @@
         [alert addAction:noButton];
         [alert addAction:yesButton];
         [self presentViewController:alert animated:YES completion:nil];
+    } else {
+        // Perform login.
+        [self showProgress];
+        
+        isLogining = YES;
+        NSString *loginURL = [NSString stringWithFormat:BASE_URL, @"login.php"];
+        NSMutableURLRequest *loginRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:loginURL]];
+        [loginRequest setHTTPMethod:@"POST"];
+        [loginRequest setTimeoutInterval:7];
+        NSString *body = [NSString stringWithFormat:@"email=%@&pass=%@", email, password];
+        [loginRequest setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+        [webViewDevices loadRequest:loginRequest];
     }
 }
 
-- (IBAction)didTapAccountButton:(UIButton *)sender {
+- (IBAction)didTapAccountButton:(id)sender {
     [self showAccountSettings];
+}
+
+- (IBAction)didTapMapButton:(id)sender {
+    webViewMap.hidden = NO;
+    webViewDevices.hidden = YES;
+    webViewAlerts.hidden = YES;
+    [webViewMap loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:MAP_URL]]];
+}
+
+- (IBAction)didTapDeviceButton:(id)sender {
+    webViewMap.hidden = YES;
+    webViewDevices.hidden = NO;
+    webViewAlerts.hidden = YES;
+    [webViewMap loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:DEVICE_URL]]];
+}
+
+- (IBAction)didTapAlertsButton:(id)sender {
+    webViewMap.hidden = YES;
+    webViewDevices.hidden = YES;
+    webViewAlerts.hidden = NO;
+    [webViewMap loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:ALERTS_URL]]];
+}
+
+- (IBAction)didTapLogoutButton:(id)sender {
+    [webViewDevices loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:LOGOUT_URL]]];
 }
 
 - (void)showAccountSettings {
@@ -53,4 +109,44 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
+#pragma mark - UIWebViewDelegate Methods
+
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    if (!isLogining) {
+        [self showProgress];
+    }
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [self.view dismissProgress];
+    if (!isLogouted && !isLogined) {
+        if (isLogining) {
+            isLogining = false;
+            NSString *requestString = webView.request.URL.absoluteString;
+            if ([requestString isEqualToString:[NSString stringWithFormat:BASE_URL, @"device.php"]] && webView == webViewDevices) {
+                isLogined = YES;
+                webViewContainer.hidden = NO;
+                [webViewDevices loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:DEVICE_URL]]];
+            } else {
+                [self showOkAlertWithTitle:@"Error" message:@"Login failed. Please verify your network settings, username & password"];
+            }
+        }
+    }
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    [self.view dismissProgress];
+}
+
+#pragma mark - Show/Dismiss Progress
+
+- (void)showProgress {
+    [self.view showProgressWithMessage:@""];
+}
+
+- (void)dismissProgress {
+    [self.view dismissProgress];
+}
+
 @end
+

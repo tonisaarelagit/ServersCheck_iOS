@@ -39,6 +39,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jif-SQ-TEP">
+                                <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                                <color key="backgroundColor" red="1" green="0.62745098040000002" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="JMP-Hb-JjV"/>
+                                </constraints>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="67w-4H-pJh">
                                 <rect key="frame" x="62" y="68" width="250" height="201.5"/>
                             </imageView>
@@ -77,13 +84,102 @@
                                     <constraint firstAttribute="height" constant="48" id="zul-hP-o9d"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jif-SQ-TEP">
-                                <rect key="frame" x="0.0" y="20" width="375" height="48"/>
-                                <color key="backgroundColor" red="1" green="0.62745098040000002" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k66-pp-xfA">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZE-ES-oSO">
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="48"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Map">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapMapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3rD-Av-Mfg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91Q-KH-CdI">
+                                        <rect key="frame" x="125" y="0.0" width="125" height="48"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Devices">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapDeviceButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6yH-qK-DDe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mr4-dc-xtF">
+                                        <rect key="frame" x="250" y="0.0" width="125" height="48"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Alerts">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapAlertsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qZ3-IK-8d0"/>
+                                        </connections>
+                                    </button>
+                                    <webView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xpi-V8-dOy">
+                                        <rect key="frame" x="0.0" y="48" width="375" height="551"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="bLj-l3-zgE"/>
+                                        </connections>
+                                    </webView>
+                                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N8b-Mn-Fdr">
+                                        <rect key="frame" x="0.0" y="48" width="375" height="551"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="219-jc-JRN"/>
+                                        </connections>
+                                    </webView>
+                                    <webView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zXr-yS-Wz3">
+                                        <rect key="frame" x="0.0" y="48" width="375" height="551"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="GtT-TK-X8p"/>
+                                        </connections>
+                                    </webView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4I-hs-M9d">
+                                        <rect key="frame" x="250" y="599" width="125" height="48"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Logout">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapLogoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ku7-5u-3ry"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="JMP-Hb-JjV"/>
+                                    <constraint firstAttribute="trailing" secondItem="v4I-hs-M9d" secondAttribute="trailing" id="02L-ve-VLU"/>
+                                    <constraint firstItem="91Q-KH-CdI" firstAttribute="height" secondItem="RZE-ES-oSO" secondAttribute="height" id="1UB-n5-d0B"/>
+                                    <constraint firstItem="Xpi-V8-dOy" firstAttribute="top" secondItem="mr4-dc-xtF" secondAttribute="bottom" id="5Ed-hh-oXH"/>
+                                    <constraint firstItem="RZE-ES-oSO" firstAttribute="leading" secondItem="k66-pp-xfA" secondAttribute="leading" id="7dZ-RJ-4WN"/>
+                                    <constraint firstItem="v4I-hs-M9d" firstAttribute="height" secondItem="mr4-dc-xtF" secondAttribute="height" id="9cK-BL-voq"/>
+                                    <constraint firstAttribute="bottom" secondItem="v4I-hs-M9d" secondAttribute="bottom" id="BHI-iI-q59"/>
+                                    <constraint firstItem="zXr-yS-Wz3" firstAttribute="centerY" secondItem="Xpi-V8-dOy" secondAttribute="centerY" id="BuS-jr-biz"/>
+                                    <constraint firstItem="zXr-yS-Wz3" firstAttribute="height" secondItem="Xpi-V8-dOy" secondAttribute="height" id="Ce5-dh-2ti"/>
+                                    <constraint firstItem="Xpi-V8-dOy" firstAttribute="width" secondItem="k66-pp-xfA" secondAttribute="width" id="CrN-qK-whL"/>
+                                    <constraint firstItem="91Q-KH-CdI" firstAttribute="top" secondItem="k66-pp-xfA" secondAttribute="top" id="GGT-vl-deN"/>
+                                    <constraint firstItem="RZE-ES-oSO" firstAttribute="top" secondItem="k66-pp-xfA" secondAttribute="top" id="PyT-If-paj"/>
+                                    <constraint firstItem="mr4-dc-xtF" firstAttribute="top" secondItem="k66-pp-xfA" secondAttribute="top" id="QUE-n8-7NM"/>
+                                    <constraint firstItem="91Q-KH-CdI" firstAttribute="width" secondItem="k66-pp-xfA" secondAttribute="width" multiplier="1/3" id="Qrc-Ae-Jpu"/>
+                                    <constraint firstItem="v4I-hs-M9d" firstAttribute="width" secondItem="mr4-dc-xtF" secondAttribute="width" id="RSr-Qk-L3g"/>
+                                    <constraint firstItem="zXr-yS-Wz3" firstAttribute="width" secondItem="Xpi-V8-dOy" secondAttribute="width" id="VlD-VW-AV0"/>
+                                    <constraint firstItem="N8b-Mn-Fdr" firstAttribute="centerY" secondItem="Xpi-V8-dOy" secondAttribute="centerY" id="Wt7-a5-idk"/>
+                                    <constraint firstItem="N8b-Mn-Fdr" firstAttribute="height" secondItem="Xpi-V8-dOy" secondAttribute="height" id="Xw3-ZB-qes"/>
+                                    <constraint firstItem="N8b-Mn-Fdr" firstAttribute="centerX" secondItem="Xpi-V8-dOy" secondAttribute="centerX" id="ZLH-cr-jaK"/>
+                                    <constraint firstItem="zXr-yS-Wz3" firstAttribute="centerX" secondItem="Xpi-V8-dOy" secondAttribute="centerX" id="aSq-x2-ctM"/>
+                                    <constraint firstItem="mr4-dc-xtF" firstAttribute="height" secondItem="91Q-KH-CdI" secondAttribute="height" id="ePU-eT-s8b"/>
+                                    <constraint firstItem="v4I-hs-M9d" firstAttribute="top" secondItem="Xpi-V8-dOy" secondAttribute="bottom" id="hXK-g9-fjZ"/>
+                                    <constraint firstItem="mr4-dc-xtF" firstAttribute="width" secondItem="k66-pp-xfA" secondAttribute="width" multiplier="1/3" id="haT-EM-KC6"/>
+                                    <constraint firstItem="RZE-ES-oSO" firstAttribute="width" secondItem="k66-pp-xfA" secondAttribute="width" multiplier="1/3" id="kU4-Ho-oV8"/>
+                                    <constraint firstItem="N8b-Mn-Fdr" firstAttribute="width" secondItem="Xpi-V8-dOy" secondAttribute="width" id="lwE-JG-rkt"/>
+                                    <constraint firstAttribute="trailing" secondItem="mr4-dc-xtF" secondAttribute="trailing" id="nuE-9J-tU6"/>
+                                    <constraint firstItem="Xpi-V8-dOy" firstAttribute="centerX" secondItem="k66-pp-xfA" secondAttribute="centerX" id="raS-HR-Gi2"/>
+                                    <constraint firstItem="91Q-KH-CdI" firstAttribute="centerX" secondItem="k66-pp-xfA" secondAttribute="centerX" id="rsZ-WX-Nhs"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -92,11 +188,16 @@
                             <constraint firstItem="5C9-kM-aPu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BGS-ho-2BY"/>
                             <constraint firstItem="jif-SQ-TEP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="BRt-SD-qz3"/>
                             <constraint firstItem="34y-4J-2se" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="40" id="BxS-sS-rNn"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="k66-pp-xfA" secondAttribute="bottom" id="Nsn-Wp-dYT"/>
                             <constraint firstItem="MVC-Vo-M4l" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-40" id="RzI-dd-IEk"/>
+                            <constraint firstItem="RZE-ES-oSO" firstAttribute="height" secondItem="jif-SQ-TEP" secondAttribute="height" id="SDR-dl-tct"/>
                             <constraint firstItem="67w-4H-pJh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="2/3" id="XyK-lF-ZuQ"/>
                             <constraint firstItem="67w-4H-pJh" firstAttribute="top" secondItem="jif-SQ-TEP" secondAttribute="bottom" id="Z4N-QO-Tev"/>
+                            <constraint firstItem="k66-pp-xfA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZGy-K9-uda"/>
                             <constraint firstItem="67w-4H-pJh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="coO-do-49L"/>
                             <constraint firstItem="34y-4J-2se" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dRB-uv-1Gd"/>
+                            <constraint firstItem="k66-pp-xfA" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="fcK-mO-DwL"/>
+                            <constraint firstItem="k66-pp-xfA" firstAttribute="top" secondItem="jif-SQ-TEP" secondAttribute="top" id="joW-C1-jEA"/>
                             <constraint firstItem="MVC-Vo-M4l" firstAttribute="top" secondItem="67w-4H-pJh" secondAttribute="bottom" id="kCM-0I-eCf"/>
                             <constraint firstItem="MVC-Vo-M4l" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="ndb-FU-igA"/>
                             <constraint firstItem="jif-SQ-TEP" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="oEV-6Q-31a"/>
@@ -106,6 +207,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aM4-sZ-Sl7"/>
+                    <connections>
+                        <outlet property="webViewAlerts" destination="zXr-yS-Wz3" id="JFH-Nf-cvF"/>
+                        <outlet property="webViewContainer" destination="k66-pp-xfA" id="WYv-QG-BF5"/>
+                        <outlet property="webViewDevices" destination="N8b-Mn-Fdr" id="b8s-6e-QS8"/>
+                        <outlet property="webViewMap" destination="Xpi-V8-dOy" id="CLy-Jt-4Wc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

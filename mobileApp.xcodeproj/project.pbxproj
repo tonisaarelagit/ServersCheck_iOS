@@ -20,6 +20,7 @@
 		09B4C2E61E01A024005A4C99 /* LocalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4C2E51E01A024005A4C99 /* LocalStorage.m */; };
 		09B4C2E91E01B302005A4C99 /* NSString+EmailValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4C2E81E01B302005A4C99 /* NSString+EmailValidation.m */; };
 		09B4C2EC1E01B3E7005A4C99 /* UIViewController+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4C2EB1E01B3E7005A4C99 /* UIViewController+Alert.m */; };
+		09B4C2EF1E01C8B9005A4C99 /* UIView+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4C2EE1E01C8B9005A4C99 /* UIView+MBProgressHUD.m */; };
 		8CBA78535CA780BF8EBB9D94 /* libPods-mobileApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B26A48B47FCAF0B04A0F17AB /* libPods-mobileApp.a */; };
 		D1C5C8AB258AD4E26D734AB0 /* libPods-mobileAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B00767AD23EBD749051E03 /* libPods-mobileAppTests.a */; };
 		E935B8FE40BB32AEC1E6D0E8 /* libPods-mobileAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE9537EEBDA863CD2F01C41 /* libPods-mobileAppUITests.a */; };
@@ -68,6 +69,8 @@
 		09B4C2E81E01B302005A4C99 /* NSString+EmailValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EmailValidation.m"; sourceTree = "<group>"; };
 		09B4C2EA1E01B3E7005A4C99 /* UIViewController+Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Alert.h"; sourceTree = "<group>"; };
 		09B4C2EB1E01B3E7005A4C99 /* UIViewController+Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Alert.m"; sourceTree = "<group>"; };
+		09B4C2ED1E01C8B9005A4C99 /* UIView+MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MBProgressHUD.h"; sourceTree = "<group>"; };
+		09B4C2EE1E01C8B9005A4C99 /* UIView+MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MBProgressHUD.m"; sourceTree = "<group>"; };
 		102701FB3E00A4F2041BA887 /* Pods-mobileAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobileAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mobileAppUITests/Pods-mobileAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3039AE7753FC47F68D888474 /* Pods-mobileApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobileApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-mobileApp/Pods-mobileApp.release.xcconfig"; sourceTree = "<group>"; };
 		B26A48B47FCAF0B04A0F17AB /* libPods-mobileApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mobileApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +203,8 @@
 				09B4C2E81E01B302005A4C99 /* NSString+EmailValidation.m */,
 				09B4C2EA1E01B3E7005A4C99 /* UIViewController+Alert.h */,
 				09B4C2EB1E01B3E7005A4C99 /* UIViewController+Alert.m */,
+				09B4C2ED1E01C8B9005A4C99 /* UIView+MBProgressHUD.h */,
+				09B4C2EE1E01C8B9005A4C99 /* UIView+MBProgressHUD.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -495,6 +500,7 @@
 			files = (
 				090DF3FB1E01919E001E4C5F /* MainViewController.m in Sources */,
 				09B4C2E91E01B302005A4C99 /* NSString+EmailValidation.m in Sources */,
+				09B4C2EF1E01C8B9005A4C99 /* UIView+MBProgressHUD.m in Sources */,
 				09B4C2EC1E01B3E7005A4C99 /* UIViewController+Alert.m in Sources */,
 				090DF3C41E018036001E4C5F /* AppDelegate.m in Sources */,
 				090DF3C11E018036001E4C5F /* main.m in Sources */,
