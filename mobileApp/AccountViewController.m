@@ -7,8 +7,15 @@
 //
 
 #import "AccountViewController.h"
+#import "NSString+EmailValidation.h"
+#import "UIViewController+Alert.h"
+#import "LocalStorage.h"
 
-@interface AccountViewController ()
+@interface AccountViewController () <UITextFieldDelegate>
+{
+    IBOutlet UITextField *tfEmail;
+    IBOutlet UITextField *tfPassword;
+}
 
 @end
 
@@ -17,6 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    tfEmail.text = [[LocalStorage shared] defaultForKey:@"email"];
+    tfPassword.text = [[LocalStorage shared] defaultForKey:@"password"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +34,36 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Button Action Methods
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)didTapCloseButton:(UIButton *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
-*/
+
+- (IBAction)didTapSaveButton:(UIButton *)sender {
+    // Save and exit.
+    NSString *email = tfEmail.text;
+    NSString *password = tfPassword.text;
+    if (email.length == 0 || ![email isValidEmail]) {
+        [self showOkAlertWithTitle:@"Validation" message:@"Please insert valid e-mail"];
+    } else if (password.length == 0) {
+        [self showOkAlertWithTitle:@"Validation" message:@"Password can not be empty"];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+        [[LocalStorage shared] setDefault:email forKey:@"email"];
+        [[LocalStorage shared] setDefault:password forKey:@"password"];
+    }
+}
+
+#pragma mark - UITextField Delegate Methods
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == tfEmail) {
+        [tfPassword becomeFirstResponder];
+    } else {
+        [textField resignFirstResponder];
+    }
+    return NO; // We do not want UITextField to insert line-breaks.
+}
 
 @end

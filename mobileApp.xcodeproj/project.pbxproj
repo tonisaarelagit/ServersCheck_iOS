@@ -18,6 +18,9 @@
 		090DF3F81E019195001E4C5F /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090DF3F71E019195001E4C5F /* AccountViewController.m */; };
 		090DF3FB1E01919E001E4C5F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090DF3FA1E01919E001E4C5F /* MainViewController.m */; };
 		090DF4001E0194E2001E4C5F /* img_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 090DF3FF1E0194E2001E4C5F /* img_logo.png */; };
+		09B4C2E61E01A024005A4C99 /* LocalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4C2E51E01A024005A4C99 /* LocalStorage.m */; };
+		09B4C2E91E01B302005A4C99 /* NSString+EmailValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4C2E81E01B302005A4C99 /* NSString+EmailValidation.m */; };
+		09B4C2EC1E01B3E7005A4C99 /* UIViewController+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4C2EB1E01B3E7005A4C99 /* UIViewController+Alert.m */; };
 		8CBA78535CA780BF8EBB9D94 /* libPods-mobileApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B26A48B47FCAF0B04A0F17AB /* libPods-mobileApp.a */; };
 		D1C5C8AB258AD4E26D734AB0 /* libPods-mobileAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B00767AD23EBD749051E03 /* libPods-mobileAppTests.a */; };
 		E935B8FE40BB32AEC1E6D0E8 /* libPods-mobileAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE9537EEBDA863CD2F01C41 /* libPods-mobileAppUITests.a */; };
@@ -62,6 +65,12 @@
 		090DF3F91E01919E001E4C5F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		090DF3FA1E01919E001E4C5F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		090DF3FF1E0194E2001E4C5F /* img_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_logo.png; sourceTree = "<group>"; };
+		09B4C2E41E01A024005A4C99 /* LocalStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalStorage.h; sourceTree = "<group>"; };
+		09B4C2E51E01A024005A4C99 /* LocalStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalStorage.m; sourceTree = "<group>"; };
+		09B4C2E71E01B302005A4C99 /* NSString+EmailValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EmailValidation.h"; sourceTree = "<group>"; };
+		09B4C2E81E01B302005A4C99 /* NSString+EmailValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EmailValidation.m"; sourceTree = "<group>"; };
+		09B4C2EA1E01B3E7005A4C99 /* UIViewController+Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Alert.h"; sourceTree = "<group>"; };
+		09B4C2EB1E01B3E7005A4C99 /* UIViewController+Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Alert.m"; sourceTree = "<group>"; };
 		102701FB3E00A4F2041BA887 /* Pods-mobileAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobileAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mobileAppUITests/Pods-mobileAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3039AE7753FC47F68D888474 /* Pods-mobileApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobileApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-mobileApp/Pods-mobileApp.release.xcconfig"; sourceTree = "<group>"; };
 		B26A48B47FCAF0B04A0F17AB /* libPods-mobileApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mobileApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +138,7 @@
 				090DF3C21E018036001E4C5F /* AppDelegate.h */,
 				090DF3C31E018036001E4C5F /* AppDelegate.m */,
 				090DF3F21E018709001E4C5F /* ViewControllers */,
+				09B4C2E31E019FF0005A4C99 /* Helpers */,
 				090DF3FC1E01940E001E4C5F /* Resources */,
 				090DF3C81E018036001E4C5F /* Main.storyboard */,
 				090DF3CB1E018036001E4C5F /* Assets.xcassets */,
@@ -184,6 +194,19 @@
 				090DF3FF1E0194E2001E4C5F /* img_logo.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		09B4C2E31E019FF0005A4C99 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				09B4C2E41E01A024005A4C99 /* LocalStorage.h */,
+				09B4C2E51E01A024005A4C99 /* LocalStorage.m */,
+				09B4C2E71E01B302005A4C99 /* NSString+EmailValidation.h */,
+				09B4C2E81E01B302005A4C99 /* NSString+EmailValidation.m */,
+				09B4C2EA1E01B3E7005A4C99 /* UIViewController+Alert.h */,
+				09B4C2EB1E01B3E7005A4C99 /* UIViewController+Alert.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		606A76C0AE67A002F5BDFE8B /* Frameworks */ = {
@@ -477,9 +500,12 @@
 			files = (
 				090DF3F51E019189001E4C5F /* LoginViewController.m in Sources */,
 				090DF3FB1E01919E001E4C5F /* MainViewController.m in Sources */,
+				09B4C2E91E01B302005A4C99 /* NSString+EmailValidation.m in Sources */,
+				09B4C2EC1E01B3E7005A4C99 /* UIViewController+Alert.m in Sources */,
 				090DF3C41E018036001E4C5F /* AppDelegate.m in Sources */,
 				090DF3C11E018036001E4C5F /* main.m in Sources */,
 				090DF3F81E019195001E4C5F /* AccountViewController.m in Sources */,
+				09B4C2E61E01A024005A4C99 /* LocalStorage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,7 +659,7 @@
 				DEVELOPMENT_TEAM = 65X33U46ZY;
 				INFOPLIST_FILE = mobileApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.servicesCheck.mobileApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.servicescheck.mobileApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "089444d8-f2d6-4bb0-a81b-fe36f88bd4c4";
 				PROVISIONING_PROFILE_SPECIFIER = Wildcard_Development;
@@ -649,7 +675,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = mobileApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.servicesCheck.mobileApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.servicescheck.mobileApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
