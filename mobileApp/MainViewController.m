@@ -31,7 +31,6 @@
 {
     BOOL isLogining;
     BOOL isLogined;
-    BOOL isLogouted;
 }
 
 - (void)viewDidLoad {
@@ -101,6 +100,12 @@
 }
 
 - (IBAction)didTapLogoutButton:(id)sender {
+    isLogined = NO;
+    webViewContainer.hidden = YES;
+    [webViewMap stopLoading];
+    [webViewDevices stopLoading];
+    [webViewAlerts stopLoading];
+    
     [webViewDevices loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:LOGOUT_URL]]];
 }
 
@@ -120,7 +125,8 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [self.view dismissProgress];
     NSString *requestString = webView.request.URL.absoluteString;
-    if (!isLogouted && !isLogined) {
+    NSLog(@"response: %@", requestString);
+    if (!isLogined) {
         if (isLogining) {
             isLogining = false;
             if ([requestString isEqualToString:[NSString stringWithFormat:BASE_URL, @"device.php"]] && webView == webViewDevices) {
@@ -132,10 +138,8 @@
             }
         }
     } else {
-        if ([requestString isEqualToString:[NSString stringWithFormat:BASE_URL, @"login.php"]] && isLogined) {
-            isLogined = NO;
-            isLogouted = YES;
-            webViewContainer.hidden = YES;
+        if ([requestString isEqualToString:[NSString stringWithFormat:BASE_URL, @"#/login"]] && isLogined) {
+            // Perform Logout
         }
     }
 }
