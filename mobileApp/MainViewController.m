@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "LocalStorage.h"
 
 @interface MainViewController ()
 
@@ -24,14 +25,32 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Button Action Methods
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)didTapLoginButton:(UIButton *)sender {
+    NSString *email = [[LocalStorage shared] defaultForKey:@"email"];
+    NSString *password = [[LocalStorage shared] defaultForKey:@"password"];
+    if (email.length == 0 || password.length == 0) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Please set up username and password.\n Do you want to set up them now?" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *noButton = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        }];
+        UIAlertAction *yesButton = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [alert dismissViewControllerAnimated:YES completion:nil];
+            [self showAccountSettings];
+        }];
+        [alert addAction:noButton];
+        [alert addAction:yesButton];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
-*/
+
+- (IBAction)didTapAccountButton:(UIButton *)sender {
+    [self showAccountSettings];
+}
+
+- (void)showAccountSettings {
+    UIViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AccountViewController"];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
 
 @end

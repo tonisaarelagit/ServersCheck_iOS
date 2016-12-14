@@ -14,7 +14,6 @@
 		090DF3CF1E018036001E4C5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 090DF3CD1E018036001E4C5F /* LaunchScreen.storyboard */; };
 		090DF3DA1E018036001E4C5F /* mobileAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 090DF3D91E018036001E4C5F /* mobileAppTests.m */; };
 		090DF3E51E018036001E4C5F /* mobileAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 090DF3E41E018036001E4C5F /* mobileAppUITests.m */; };
-		090DF3F51E019189001E4C5F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090DF3F41E019189001E4C5F /* LoginViewController.m */; };
 		090DF3F81E019195001E4C5F /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090DF3F71E019195001E4C5F /* AccountViewController.m */; };
 		090DF3FB1E01919E001E4C5F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090DF3FA1E01919E001E4C5F /* MainViewController.m */; };
 		090DF4001E0194E2001E4C5F /* img_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 090DF3FF1E0194E2001E4C5F /* img_logo.png */; };
@@ -58,8 +57,6 @@
 		090DF3E01E018036001E4C5F /* mobileAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mobileAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		090DF3E41E018036001E4C5F /* mobileAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mobileAppUITests.m; sourceTree = "<group>"; };
 		090DF3E61E018036001E4C5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		090DF3F31E019189001E4C5F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		090DF3F41E019189001E4C5F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		090DF3F61E019195001E4C5F /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		090DF3F71E019195001E4C5F /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		090DF3F91E01919E001E4C5F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -178,8 +175,6 @@
 		090DF3F21E018709001E4C5F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				090DF3F31E019189001E4C5F /* LoginViewController.h */,
-				090DF3F41E019189001E4C5F /* LoginViewController.m */,
 				090DF3F61E019195001E4C5F /* AccountViewController.h */,
 				090DF3F71E019195001E4C5F /* AccountViewController.m */,
 				090DF3F91E01919E001E4C5F /* MainViewController.h */,
@@ -498,7 +493,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				090DF3F51E019189001E4C5F /* LoginViewController.m in Sources */,
 				090DF3FB1E01919E001E4C5F /* MainViewController.m in Sources */,
 				09B4C2E91E01B302005A4C99 /* NSString+EmailValidation.m in Sources */,
 				09B4C2EC1E01B3E7005A4C99 /* UIViewController+Alert.m in Sources */,
