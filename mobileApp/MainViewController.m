@@ -89,24 +89,18 @@
     webViewMap.hidden = YES;
     webViewDevices.hidden = NO;
     webViewAlerts.hidden = YES;
-    [webViewMap loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:DEVICE_URL]]];
+    [webViewDevices loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:DEVICE_URL]]];
 }
 
 - (IBAction)didTapAlertsButton:(id)sender {
     webViewMap.hidden = YES;
     webViewDevices.hidden = YES;
     webViewAlerts.hidden = NO;
-    [webViewMap loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:ALERTS_URL]]];
+    [webViewAlerts loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:ALERTS_URL]]];
 }
 
 - (IBAction)didTapLogoutButton:(id)sender {
-    isLogined = NO;
-    webViewContainer.hidden = YES;
-    [webViewMap stopLoading];
-    [webViewDevices stopLoading];
-    [webViewAlerts stopLoading];
-    
-    [webViewDevices loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:LOGOUT_URL]]];
+    [self shouldPerformLogout];
 }
 
 - (void)showAccountSettings {
@@ -138,8 +132,8 @@
             }
         }
     } else {
-        if ([requestString isEqualToString:[NSString stringWithFormat:BASE_URL, @"#/login"]] && isLogined) {
-            // Perform Logout
+        if ([requestString isEqualToString:[NSString stringWithFormat:BASE_URL, @"login.php"]] && isLogined) {
+            [self shouldPerformLogout];
         }
     }
 }
@@ -156,6 +150,16 @@
 
 - (void)dismissProgress {
     [self.view dismissProgress];
+}
+
+- (void)shouldPerformLogout {
+    isLogined = NO;
+    webViewContainer.hidden = YES;
+    [webViewMap stopLoading];
+    [webViewDevices stopLoading];
+    [webViewAlerts stopLoading];
+    
+    [webViewDevices loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:LOGOUT_URL]]];
 }
 
 @end
