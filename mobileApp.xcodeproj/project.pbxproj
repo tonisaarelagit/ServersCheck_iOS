@@ -663,7 +663,7 @@
 				DEVELOPMENT_TEAM = 65X33U46ZY;
 				INFOPLIST_FILE = mobileApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.servicescheck.mobileApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.servicesCheck.mobileApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "089444d8-f2d6-4bb0-a81b-fe36f88bd4c4";
 				PROVISIONING_PROFILE_SPECIFIER = Wildcard_Development;
@@ -679,7 +679,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = mobileApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.servicescheck.mobileApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.servicesCheck.mobileApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
