@@ -119,10 +119,10 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [self.view dismissProgress];
+    NSString *requestString = webView.request.URL.absoluteString;
     if (!isLogouted && !isLogined) {
         if (isLogining) {
             isLogining = false;
-            NSString *requestString = webView.request.URL.absoluteString;
             if ([requestString isEqualToString:[NSString stringWithFormat:BASE_URL, @"device.php"]] && webView == webViewDevices) {
                 isLogined = YES;
                 webViewContainer.hidden = NO;
@@ -130,6 +130,12 @@
             } else {
                 [self showOkAlertWithTitle:@"Error" message:@"Login failed. Please verify your network settings, username & password"];
             }
+        }
+    } else {
+        if ([requestString isEqualToString:[NSString stringWithFormat:BASE_URL, @"login.php"]] && isLogined) {
+            isLogined = NO;
+            isLogouted = YES;
+            webViewContainer.hidden = YES;
         }
     }
 }
