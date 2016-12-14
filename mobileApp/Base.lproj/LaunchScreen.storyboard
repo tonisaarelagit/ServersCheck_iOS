@@ -22,13 +22,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="TcY-zD-5tf">
-                                <rect key="frame" x="47" y="217" width="281" height="133"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_launch_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="TcY-zD-5tf">
+                                <rect key="frame" x="47" y="173" width="281" height="222"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.62745098040000002" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="TcY-zD-5tf" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.2" id="6Hh-so-9KI"/>
+                            <constraint firstItem="TcY-zD-5tf" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="1/3" id="6Hh-so-9KI"/>
                             <constraint firstItem="TcY-zD-5tf" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="LYl-am-7t3"/>
                             <constraint firstItem="TcY-zD-5tf" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="3/4" id="WQi-fK-9WB"/>
                             <constraint firstItem="TcY-zD-5tf" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-50" id="iLb-qo-Lbt"/>
@@ -41,6 +41,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="img_logo.png" width="256" height="48"/>
+        <image name="img_launch_logo.png" width="640" height="746"/>
     </resources>
 </document>
